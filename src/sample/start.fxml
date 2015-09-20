@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox id="BrowserMamaiev" fx:id="vB" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <AnchorPane prefHeight="0.0" prefWidth="613.0">
+         <children>
+            <Button layoutX="517.0" layoutY="27.0" mnemonicParsing="false" onAction="#downloadFile" text="Download" AnchorPane.rightAnchor="15.0" />
+            <TextField fx:id="fieldURL" layoutX="67.0" layoutY="27.0" minHeight="25.0" minWidth="469.0" prefHeight="25.0" prefWidth="469.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="95.0" />
+         </children>
+         <padding>
+            <Insets left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </AnchorPane>
+      <AnchorPane prefHeight="53.0" prefWidth="600.0">
+         <children>
+            <ProgressBar fx:id="progressBar" layoutX="47.0" layoutY="5.0" minWidth="469.0" prefHeight="18.0" prefWidth="469.0" progress="0.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="115.0" />
+            <ProgressIndicator layoutX="287.0" layoutY="25.0" prefHeight="18.0" prefWidth="29.0" progress="0.0" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="315.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane minHeight="30.0" prefHeight="20.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="38.0" layoutY="32.0" text="Последние загрузки:" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="0.0">
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </Label>
+            <Text layoutX="457.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Browser" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ScrollPane layoutX="34.0" minHeight="230.0" minWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="0.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="230.0" prefWidth="186.0">
+                     <children>
+                        <ListView prefHeight="230.0" prefWidth="186.0" />
+                     </children></AnchorPane>
+              </content>
+            </ScrollPane>
+            <ScrollPane fx:id="scrExp" layoutX="367.0" prefHeight="230.0" prefWidth="200.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="0.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="230.0" prefWidth="190.0">
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

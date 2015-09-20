@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="194.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Label text="Путь сохранения:">
+         <VBox.margin>
+            <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <TextField fx:id="txtPath" maxWidth="250.0" minWidth="250.0" prefHeight="25.0" prefWidth="250.0" text="D:\MyDocs">
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </TextField>
+      <CheckBox fx:id="chName" mnemonicParsing="false" text="Новое имя:">
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+         </padding>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </CheckBox>
+      <TextField fx:id="txtName" disable="true" maxWidth="250.0">
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </TextField>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnOk" minWidth="60.0" mnemonicParsing="false" text="OK" onAction="#createCont">
+               <HBox.margin>
+                  <Insets left="75.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnCancel" cancelButton="true" minWidth="60.0" mnemonicParsing="false" text="Cancel" onAction="#closeWindow">
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
