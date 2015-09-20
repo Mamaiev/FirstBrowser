@@ -10,7 +10,7 @@
    <children>
       <AnchorPane prefHeight="0.0" prefWidth="613.0">
          <children>
-            <Button layoutX="517.0" layoutY="27.0" mnemonicParsing="false" onAction="#downloadFile" text="Download" AnchorPane.rightAnchor="15.0" />
+            <Button layoutX="517.0" layoutY="27.0" mnemonicParsing="false" onAction="#createCont" text="Download" AnchorPane.rightAnchor="15.0" />
             <TextField fx:id="fieldURL" layoutX="67.0" layoutY="27.0" minHeight="25.0" minWidth="469.0" prefHeight="25.0" prefWidth="469.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="95.0" />
          </children>
          <padding>
@@ -35,23 +35,16 @@
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <ScrollPane layoutX="34.0" minHeight="230.0" minWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="0.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="230.0" prefWidth="186.0">
-                     <children>
-                        <ListView prefHeight="230.0" prefWidth="186.0" />
-                     </children></AnchorPane>
-              </content>
-            </ScrollPane>
-            <ScrollPane fx:id="scrExp" layoutX="367.0" prefHeight="230.0" prefWidth="200.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="0.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="230.0" prefWidth="190.0">
-                     <padding>
-                        <Insets right="20.0" />
-                     </padding>
-                  </AnchorPane>
-              </content>
-            </ScrollPane>
+            <ListView fx:id="listViewListDownloadHistory" layoutX="37.0" prefHeight="230.0" prefWidth="186.0">
+               <opaqueInsets>
+                  <Insets left="100.0" />
+               </opaqueInsets>
+            </ListView>
+            <ListView fx:id="listViewList1" layoutX="379.0" prefHeight="230.0" prefWidth="186.0">
+               <opaqueInsets>
+                  <Insets left="100.0" />
+               </opaqueInsets>
+            </ListView>
          </children>
       </AnchorPane>
    </children>

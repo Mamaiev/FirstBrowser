@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.collections.FXCollections;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import javafx.scene.control.ListView;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -19,20 +22,25 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class Controller extends Main {
 
     public VBox vB;
     public TextField fieldURL;
-
+    public ListView listViewListDownloadHistory;
     public ProgressBar progressBar;
     public ProgressIndicator progressIndicator;
+    ArrayList<String> listHistory = new ArrayList<String>();
+
+
+
 
 
     // The method begins the process of downloading
-    public void createCont() throws Exception{
+    public void createCont(ActionEvent event) throws Exception{
        try {
-           fieldURL.setText(fieldURL.getText());
+//           fieldURL.setText(fieldURL.getText()); ------------------ wtf ????? ))))))) возьми  значение текста с fieldURL и вставь его туда ?
            Task<Void> task = new DownloadTask(fieldURL.getText());
            progressBar.progressProperty().bind(task.progressProperty());
 
@@ -40,7 +48,7 @@ public class Controller extends Main {
 //        Task<Void> task1 = new DownloadTask(fieldURL.getText());
 //        progressIndicator.progressProperty().bind(task1.progressProperty());
 
-//        fieldURL.clear();
+           fieldURL.clear();
            Thread thread = new Thread(task);
            thread.setDaemon(true);
            thread.start();
@@ -66,7 +74,6 @@ public class Controller extends Main {
             String nameFile = url.substring(url.lastIndexOf("/")+1, url.lastIndexOf("."));
             try (InputStream is = connection.getInputStream();
                  OutputStream os = Files.newOutputStream(Paths.get("C:\\Users\\Dacha\\git\\FirstBrowser\\download\\" + nameFile + ext))) {
-                System.out.println(url);
                 long nread = 0L;
                 byte[] buf = new byte[8192];
                 int n;
@@ -87,6 +94,8 @@ public class Controller extends Main {
         @Override
         protected void succeeded() {
             System.out.println("downloaded");
+
+            listViewListDownloadHistory.setItems(FXCollections.observableArrayList(url.toString()));
 
         }
     }
