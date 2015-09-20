@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
@@ -14,7 +15,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import javafx.scene.control.ListView;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -29,6 +29,7 @@ public class Controller extends Main {
     public VBox vB;
     public TextField fieldURL;
     public ListView listViewListDownloadHistory;
+    public ArrayList<String> arrayList = new ArrayList<>();
     public ProgressBar progressBar;
     public ProgressIndicator progressIndicator;
     ArrayList<String> listHistory = new ArrayList<String>();
@@ -88,14 +89,14 @@ public class Controller extends Main {
 
         @Override
         protected void failed() {
-            System.out.println("failed");
+            System.out.println("Failed");
         }
 
         @Override
         protected void succeeded() {
-            System.out.println("downloaded");
-
-            listViewListDownloadHistory.setItems(FXCollections.observableArrayList(url.toString()));
+            System.out.println("Download");
+            arrayList.add(url);
+            listViewListDownloadHistory.setItems(FXCollections.observableArrayList(arrayList));
 
         }
     }
