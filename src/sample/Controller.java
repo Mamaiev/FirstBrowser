@@ -24,7 +24,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class Controller extends Main {
+public class Controller  {
 
     public VBox vB;
     public TextField fieldURL;
@@ -32,36 +32,26 @@ public class Controller extends Main {
     public ArrayList<String> arrayList = new ArrayList<>();
     public ProgressBar progressBar;
     public ProgressIndicator progressIndicator;
-    ArrayList<String> listHistory = new ArrayList<String>();
-
-
-
-
 
     // The method begins the process of downloading
-    public void createCont(ActionEvent event) throws Exception{
-       try {
-//           fieldURL.setText(fieldURL.getText()); ------------------ wtf ????? ))))))) возьми  значение текста с fieldURL и вставь его туда ?
+    public void createCont(ActionEvent event) {
+        System.out.println(fieldURL);
            Task<Void> task = new DownloadTask(fieldURL.getText());
            progressBar.progressProperty().bind(task.progressProperty());
-
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!");
 //       Доделать индикатор-----------------------------------------------------------------------------------------------
 //        Task<Void> task1 = new DownloadTask(fieldURL.getText());
 //        progressIndicator.progressProperty().bind(task1.progressProperty());
 
-           fieldURL.clear();
+//           fieldURL.clear();
            Thread thread = new Thread(task);
            thread.setDaemon(true);
            thread.start();
-       }
-       catch (Exception e){
-           System.out.println("Exception!!!!!!!!!!!!!!!!!");
-       }
     }
 
     private class DownloadTask extends Task<Void> {
 
-        public String url;
+        private String url;
 
         public DownloadTask(String  fieldURL) {
             url = fieldURL;
@@ -122,6 +112,3 @@ public class Controller extends Main {
         stage.hide();
     }
 }
-
-
-

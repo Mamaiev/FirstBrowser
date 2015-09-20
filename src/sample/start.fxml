@@ -10,7 +10,7 @@
    <children>
       <AnchorPane prefHeight="0.0" prefWidth="613.0">
          <children>
-            <Button layoutX="517.0" layoutY="27.0" mnemonicParsing="false" onAction="#createCont" text="Download" AnchorPane.rightAnchor="15.0" />
+            <Button layoutX="517.0" layoutY="27.0" mnemonicParsing="false" onAction="#downloadFile" text="Download" AnchorPane.rightAnchor="15.0" />
             <TextField fx:id="fieldURL" layoutX="67.0" layoutY="27.0" minHeight="25.0" minWidth="469.0" prefHeight="25.0" prefWidth="469.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="95.0" />
          </children>
          <padding>
@@ -40,11 +40,18 @@
                   <Insets left="100.0" />
                </opaqueInsets>
             </ListView>
-            <ListView fx:id="listViewList1" layoutX="309.0" prefHeight="230.0" prefWidth="279.0">
-               <opaqueInsets>
-                  <Insets left="100.0" />
-               </opaqueInsets>
-            </ListView>
+            <BorderPane layoutX="309.0" prefHeight="230.0" prefWidth="279.0">
+               <left>
+                  <ListView fx:id="listViewList1" prefHeight="230.0" prefWidth="46.0" BorderPane.alignment="CENTER">
+                     <opaqueInsets>
+                        <Insets left="100.0" />
+                     </opaqueInsets>
+                  </ListView>
+               </left>
+               <right>
+                  <ListView prefHeight="230.0" prefWidth="223.0" BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
          </children>
       </AnchorPane>
    </children>
